@@ -14,8 +14,15 @@ class MainViewController < UIViewController
   end
 
   def add_task
-    vc = AddTaskViewController.new
-    vc.task = @task
-    navigationController.pushViewController(vc, animated: true)
+    UIAlertView.alloc.initWithTitle(
+        "Hello world",
+        message: "I hope you are OK",
+        delegate: nil,
+        cancelButtonTitle: "NO!",
+        otherButtonTitles: "Thank you", nil
+    ).show
+    # vc = AddTaskViewController.new
+    # vc.task = @task
+    # navigationController.pushViewController(vc, animated: true)
   end
 end

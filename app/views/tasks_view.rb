@@ -16,6 +16,14 @@ class TasksView < UIView
     @label.frame = [[20, 150], [280, 30]]
     addSubview(@label)
 
+    image = UIImage.imageNamed("slide")
+    image_view = UIImageView.new
+    image_view.frame = [[50, 200], [220, 220]]
+    image_view.backgroundColor = UIColor.lightGrayColor
+    image_view.image = image
+    image_view.contentMode = UIViewContentModeScaleAspectFit
+    addSubview(image_view)
+
     self
   end
 end
