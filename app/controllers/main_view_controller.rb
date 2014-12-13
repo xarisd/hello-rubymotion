@@ -1,7 +1,12 @@
 class MainViewController < UIViewController
   def loadView
     self.view = TasksView.new
-    view.button.addTarget(self, action: :add_task, forControlEvents: UIControlEventTouchUpInside)
+
+    navigationItem.rightBarButtonItem = UIBarButtonItem.alloc.initWithBarButtonSystemItem(
+        UIBarButtonSystemItemAdd,
+        target: self,
+        action: 'add_task'
+    )
   end
 
   def viewDidLoad
@@ -9,18 +14,7 @@ class MainViewController < UIViewController
     @task = Task.new
   end
 
-  def viewWillAppear(animated)
-    view.label.text = @task.title
-  end
-
   def add_task
-    # UIAlertView.alloc.initWithTitle(
-    #     "Hello world",
-    #     message: "I hope you are OK",
-    #     delegate: nil,
-    #     cancelButtonTitle: "NO!",
-    #     otherButtonTitles: "Thank you", nil
-    # ).show
     vc = AddTaskViewController.new
     vc.task = @task
     navigationController.pushViewController(vc, animated: true)

@@ -3,20 +3,18 @@ class AddTaskViewController < UIViewController
 
   def loadView
     self.view = AddTaskView.new
-    view.button.addTarget(self, action: :save_task, forControlEvents: UIControlEventTouchUpInside)
-    view.text_field.delegate = self
+    view.layout_guide = self.topLayoutGuide
+    view.layout_views
+    # view.button.addTarget(self, action: :save_task, forControlEvents: UIControlEventTouchUpInside)
   end
 
   def viewDidLoad
     self.title = "Add Task"
   end
 
-  def textFieldShouldReturn(text_field)
-    save_task
-  end
-
   def save_task
-    task.title = view.text_field.text
+    # task.title = view.title_field.text
+    # task.notes = view.notes_field.text
     navigationController.popViewControllerAnimated(true) if navigationController
   end
 end
